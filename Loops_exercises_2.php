@@ -15,11 +15,9 @@
 	*/
 	$astrisco = "*";
 
-	for($i = 0; $i <= 4; $i++){
-		$loop = 0;
-		for($loop = 0; $loop <= $i; $loop++){
+	for($line = 0; $line <= 4; $line++){
+		for($i = 0; $i <= $line; $i++){
 			echo $astrisco;
-			
 		}
 		echo "<br>";
 	};
@@ -40,67 +38,51 @@ echo "<hr>";
 		* 
 
 	*/
-	$maisast = "*";
+	$astrisco = "*";
 
-	for($a = 0; $a <= 10; $a++){
-		$line = 0;
-		for($line = 0; $line <= $a/2; $line++){
-			echo $maisast;
-		
-	};
-		
-		while($a >= $a/2){
-			echo $maisast;
-			if($a = $a / 2){
-				break;
-			};
-			$a--;
-		};
+	for($line = 0; $line <= 4; $line++){
+		for($i = 0; $i <= $line; $i++){
+			echo $astrisco;
+		}
 		echo "<br>";
 	};
-
+	$maisastt = "*";
+	for($b = 4; $b >= 0; $b--){
+		for($linetwo = $b; $linetwo >=0 ; $linetwo--){
+		echo $maisastt;
+		};
+	echo "<br>";
+};
 	/*
 	- Exercise 3 : 
 
-		We already have two arrays :
+		We already have two arrays :*/
 	    $artists = array(
 	        0 => array("Eminem", "IAM"), 
 	        1 => array("Madonna", "Katy Perry"), 
 	        2 => array("Pink Floyd", "AC/DC")
 	    );
     
-    
-    
 	    $style = array(
 	        0 => "Rap",
 	        1 => "Pop", 
 	        2 => "Rock"
-	    );   
-    
- 
- 		Write a PHP script which merge the two arrays to have a single array looking like this :
+		);   
 
-		    $array3 =  array (      
-		        "Rap" => Array (          
-		            [0] => "Eminem",              
-		            [1] => "IAM"    
-		        ),  
-		        "Pop" => Array (          
-		            [0] => "Madonna",              
-		            [1] => "Katy Perry"    
-		        ),
-		        "Rock" => Array (          
-		            [0] => "Pink Floyd",              
-		            [1] => "AC/DC"    
-		        )            
-		    )
-	*/
+		$count = count($style);
+    	$array3 = array();
+		
+			for($i=0; $i<$count; $i++){
+				$array3[$style[$i]] = $artists[$i];
+			};
 
-	/*
+		var_dump($array3);
+		 
+		/*
 	-Exercise 4 :
 	
 		We have an array of bank transactions, which indicates the credit and debit amounts of each person.
-		For each person, calculate the real amount of their account and it as a key/value in the array.
+		For each person, calculate the real amount of their account and it as a key/value in the array.*/
 
 		$transactions = array(
 		    "Marie" => array(
@@ -120,31 +102,14 @@ echo "<hr>";
 		        "credit"=>14
 		    )
 		);
-
-		// Expected results : 
-		$transactions = array(
-		    "Marie" => array(
-		        "debit"=>6,
-		        "credit"=>9,
-		        "amount"=>3
-		    ),
-		    "Julien" => array(
-		        "debit"=>21,
-		        "credit"=>19,
-		        "amount"=>-2
-		    ),
-		    "Sophie" => array(
-		        "debit"=>15,
-		        "credit"=>14,
-		        "amount"=>-1
-		    ),
-		    "John" => array(
-		        "debit"=>10,
-		        "credit"=>14,
-		        "amount"=>4
-		    )
-		);
-	*/
+	$larguer = count($transactions);
+	echo $larguer;
+		foreach($transactions as $key => $value){
+			
+			$transactions[$key]["amount"] = $value["credit"] - $value["debit"];
+		};
+		
+	var_dump($transactions);
 
 	/*
 	- Final exercise - ONLY FOR THE BEASTS
@@ -172,3 +137,30 @@ echo "<hr>";
 	        echo "Missing number is: " . $var;
 
 	*/
+$myArray = [];
+$find;
+for($i = 1; $i<=50; $i++){
+	$myArray[$i] = $i;
+	$find += $i;
+
+};
+
+$delete = rand(1, 50);
+
+unset($myArray[$delete]);
+
+var_dump($myArray);
+
+foreach($myArray as $key){
+	$find -= $key;
+}
+
+/*for($b = 1; $b<=count($myArray); $b++){
+if($myArray[$b] == null)
+
+$find = $b;
+
+
+};*/
+
+echo $find;

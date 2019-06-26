@@ -90,11 +90,34 @@
 		Find the greatest value.
 	*/
 	echo "Exercise 5:<br>";
-	$random;
-	for($i = 1; $i<=10; $i++){
-		$random[$i] = rand(0, 1000);
-	}
+	$random = array();
+	
 
+	for($i = 0; $i<=10; $i++){
+	$random[$i] = rand(-100, 100);
+	};
+
+	$min = $random[0];
+	$max = $random[0];
+
+	foreach($random as $key => $value){
+	if($value>$max)
+	$max = $value;
+	
+
+	if($value<$min)
+	$min = $value;
+}
+
+echo "smallest value:<br>";
+echo $min. "<br>";
+echo "position:" . array_search($min, $random). "<br>";
+
+echo "greatest value:<br>";
+echo $max. "<br>";
+echo "position:" . array_search($max, $random). "<br>";
+
+	var_dump($random);
 	echo "smallest value:<br>";
 	echo min($random) . "<br>"; 
 
